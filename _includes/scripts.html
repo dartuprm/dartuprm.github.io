@@ -1,0 +1,155 @@
+<!-- JS -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/js/menu.js"></script>
+
+{% if page.url == '/news/index.html'%}
+<script src="/js/instafeed.min.js" type="text/javascript"></script>
+<script src="/js/news.js" type="text/javascript"></script>
+{% endif %}
+
+{% if page.url == '/index.html'%}
+	<script type="text/javascript">
+	$('.video-section').css({'background-image' : 'url(http://www.shaneblackphoto.com/Portfolio/i-HSkGjhH/0/L/Crater%20Lake%20Losi%203p%20-%20High%20Res-X3L.jpg)', 'background-position' : '50% 0px', 'background-size' : 'cover'});
+	</script>
+{% endif %}
+
+{% if page.url == '/about/index.html'%}
+	<script type="text/javascript">
+	var random = Math.floor(Math.random() * 7) + 1;
+	$('.video-section').css({'background-image' : 'url(https://scotch.io/wp-content/themes/thirty/demos/animated-article-headers/img/'+random+'.jpg)', 'background-position' : '50% 0px', 'background-size' : 'cover'});
+	</script>
+{% endif %}
+
+{% if page.url == '/team/index.html'%}
+<script src="/js/carousel.js" type="text/javascript"></script>
+<script src="/js/owl.carousel.min.js" type="text/javascript"></script>
+		<!--<script type="text/javascript">
+			$(function() {
+				$('#carousel').carouFredSel({
+					direction: 'up',
+					items: 1,
+					scroll: {
+						fx: 'directscroll'
+					},
+					pagination: {
+						container: '#pager',
+						anchorBuilder: function( nr ) {
+							return '<a href="#" class="thumb' + nr + '"><img src="' + this.src + '" width="50" /></a>';
+						}
+					}
+				});
+			});
+
+
+		</script>-->
+    <script type="text/javascript">
+$(document).ready(function() {
+ 
+  $("#buso").owlCarousel({
+    autoPlay: 3000, //Set AutoPlay to 3 seconds
+    items:4,
+    // Responsive 
+    responsive: true,
+    responsiveRefreshRate : 200,
+    responsiveBaseWidth: window,
+  });
+  $("#structures").owlCarousel({
+    autoPlay: 3000, //Set AutoPlay to 3 seconds
+    items:4
+  });
+  $("#prav").owlCarousel({
+    autoPlay: 3000, //Set AutoPlay to 3 seconds
+    items:4
+  });
+  $("#lead").owlCarousel({
+    autoPlay: 3000, //Set AutoPlay to 3 seconds
+    items:4
+  });
+ 
+});
+    </script>
+
+
+{% endif %}
+
+{% if page.url == '/contact/index.html'%}
+<script type="text/javascript" src="/js/bootstrapValidator.min.js"></script>
+
+<script>
+
+
+$(document).ready(
+  function() {
+    var contactForm = $('#contact-form');
+    
+
+    contactForm.bootstrapValidator({
+      message: 'This value is not valid',
+      feedbackIcons: {
+        valid: 'fa fa-check',
+        invalid: 'fa fa-remove',
+        validating: 'fa fa-refresh'
+      },//end message
+      fields: {
+        _replyto: {
+          validators: {
+            notEmpty: {
+              message: 'The email address is required'
+            },
+            emailAddress: {
+              message: 'The email address is not valid'
+            }
+          }
+        },//end replyto
+        message: {
+          validators: {
+            notEmpty: {
+              message: 'The message is required and cannot be empty'
+            }
+          }
+        },//end message
+        name: {
+          validators: {
+            notEmpty: {
+              message: "The name is required and cannot be empty"
+            }
+          }
+        },//end name
+        _subject: {
+          validators: {
+            notEmpty: {
+              message: "The subject is required and cannot be empty"
+            }
+          }
+        }//end subject
+      }//end fields
+
+    });//end bootstrap validator
+
+    contactForm.on('success.form.bv', function(e) {
+      e.preventDefault();
+        $.ajax({
+        url: "//formspree.io/dart.uprm@gmail.com", 
+        method: "POST",
+        data: contactForm.serialize(),
+        dataType: "json",
+        beforeSend: function() {
+          contactForm.append('<div class="alert-loading" >Sending message…</div>');
+        },
+        success: function(data) {
+          contactForm.find('.alert-loading').remove();
+          var succesBox = $('<div class="alert alert-success alert-dismissible" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + '<strong>Thanks!</strong> I will reply in a few hours' + '</div>').hide();
+          contactForm.before(succesBox);
+          succesBox.fadeIn("slow");
+          succesBox.fadeTo(2000, 500).slideUp(500, function() {
+            $(".alert-success").alert('close');
+          });
+        }
+        });
+    });
+
+    });
+
+</script>
+
+{% endif %}

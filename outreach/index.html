@@ -1,0 +1,50 @@
+---
+layout: default
+title: Outreach
+---
+
+
+<section id="main">
+<div class="container">
+  <div class="row">
+    <br>
+    <h1 class="centered">WHAT ARE WE DOING?</h1>
+    <hr>
+    <br>
+    <div class="col-lg-12">
+      <p>In  order  to  achieve  community  outreach  the  team  is  making  an educational engagement plan in which the team will be making several activities so that the general public of Puerto Rico is able to become part of the rocketry community.</p>
+    </div><!-- col-lg-6 -->   
+  </div>
+</div>
+</section>
+
+<section class="section--postsWrapper">
+  <div class="container">
+    <div class="blockGroup">
+      <ul class="blockGroup-list">
+        {% for post in site.posts %}
+          <li class="block">
+            <div class="postArticle-wrapper">
+              <article class="postArticle postArticle--short">
+                {% if post.image.feature %}
+                  <a href="{{ post.url }}">
+                    <div class="postArticle-image desaturate" style="background-image:url('{{ post.image.feature | prepend: site.baseurl_featured_img }}')">
+                    </div>
+                  </a>
+                {% else %}
+                <a href="{{ post.url }}">
+                  <div class="postArticle-image" style="background-image:url('{{site.baseurl}}assets/images/logo-black.svg')">
+                  </div>
+                </a>
+                {% endif %}
+                <a class="postArticle-title" href="{{ post.url }}">{{ post.title }}</a>
+              </article>
+              <div class="block-postMeta">{{ post.date | date_to_string }}</div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
