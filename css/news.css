@@ -1,3 +1,10 @@
+#header-pic{
+  background-image : url(/img/space-shuttle.jpg);
+  background-position : 50% 0px;
+  background-size : cover;
+}
+
+
 .instagram-wrap {
   background: #eeeeee;
      
