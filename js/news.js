@@ -2,10 +2,10 @@ $(function() {
 
     //Set up instafeed
     var feed = new Instafeed({
-        clientId: '97ae5f4c024c4a91804f959f43f2635f',
+        clientId: 'cfdef5522d904dce9a986e1a304823d1',
         target: 'instafeed',
         get: 'tagged',
-        tagName: 'photographyportfolio',
+        tagName: 'dartuprm',
         links: true,
         limit: 8,
         sortBy: 'most-recent',

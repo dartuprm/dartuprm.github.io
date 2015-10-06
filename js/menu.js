@@ -47,9 +47,7 @@ $(document).ready(function(){
       scroll_pos = $(this).scrollTop();
       if(scroll_pos > 570) {
         $(".navbar-inverse").css("background-color", "rgba(0, 0, 0, 0.5)");
-        //$(".navbar-inverse").css("border-color", "#ddd");
-        
-        
+        //$(".navbar-inverse").css("border-color", "#ddd"); 
       } else {
          $(".navbar-inverse").css("background-color", "");
          //$(".navbar-inverse").css("border-color", "");

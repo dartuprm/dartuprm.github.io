@@ -1,7 +1,7 @@
 
 
 .downArrow{
-      margin: 0;
+    margin: 0;
     padding: 0;
     /* width: 30px; */
     /* height: 30px; */
@@ -683,25 +683,6 @@ margin-left: -15px;
 .modal-footer {
   background: #2b2b2b;
 }
-
-/*
-.navbar-default {
-border-color: transparent;
-background-color: #dadada;
-}
-
-
-.navbar-toggle {
-border-color: transparent;
-border: 0px solid transparent;
-}
-
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-  background-color: #16a085;
-  color: white;
-}
-*/
 
 
 hr {
