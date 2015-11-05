@@ -5,40 +5,52 @@
 }
 
 
-.instagram-wrap {
-  background: #eeeeee;
-     
+body {
+  padding: 0px;
+  margin: 0px;
+  line-height: 1.5em;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px; }
+
+.container#box {
+  display: inline-block;
+  width: 650px;
+ }
+
+/*sections*/
+section{
+  display: block;
+  padding: 20px 0px; }
+
+  /* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1055px) {
+   .container#box {
+  width: 650px; }
 }
 
-.photos-wrap{
-   padding-bottom: 20px;
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .container#box {
+  width: 500px; }
 }
 
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .container#box {
+  width: 400px; }
+}
 
-.instagram-content .photo-box {
-  margin: 0 0 30px 0;
-}
-.instagram-content .photo-box .image-wrap img {
-  width: 100%;
-}
-.instagram-content .photo-box .image-wrap .likes {
-  position: absolute;
-  bottom: 5px;
-  left: 15px;
-  padding: 5px;
-  background: black;
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
-}
-.instagram-content .photo-box .description {
-  font-family: "Montserrat", sans-serif;
-  font-size: 12px;
-  background: white;
-  color: #9b9b9b;
-  letter-spacing: 1px;
-  padding: 15px;
-  height: 75px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+     .container#box {
+  width: 350px; }
+        }
+
+
+
+
+

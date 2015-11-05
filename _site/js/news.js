@@ -1,17 +1,39 @@
-$(function() {
 
-    //Set up instafeed
-    var feed = new Instafeed({
-        clientId: 'cfdef5522d904dce9a986e1a304823d1',
-        target: 'instafeed',
-        get: 'tagged',
-        tagName: 'dartuprm',
-        links: true,
-        limit: 8,
-        sortBy: 'most-recent',
-        resolution: 'standard_resolution',
-        template: '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><div class="photo-box"><div class="image-wrap"><a href="{{link}}"><img src="{{image}}"></a><div class="likes">{{likes}} Likes</div></div><div class="description">{{caption}}<div class="date">{{model.date}}</div></div></div></div>'
+$(document).ready(function() {
+
+        var updateFeed = function() {
+            
+            $('.social-feed-container').socialfeed({
+                // FACEBOOK
+                facebook: {
+                    accounts: ['@uprmdart'],
+                    limit: 5,
+                    access_token: '150849908413827|a20e87978f1ac491a0c4a721c961b68c'
+                },
+             
+                // Twitter
+                twitter: {
+                    accounts: ['@dart_uprm'],
+                    limit: 5,
+                    consumer_key: 'qzRXgkI7enflNJH1lWFvujT2P', // make sure to have your app read-only
+                    consumer_secret: '8e7E7gHuTwyDHw9lGQFO73FcUwz9YozT37lEvZulMq8FXaPl8O', // make sure to have your app read-only
+                },
+
+                // GENERAL SETTINGS
+                length: 200,
+                show_media: true,
+                // Moderation function - if returns false, template will have class hidden
+                moderation: function(content) {
+                    return (content.text) ? content.text.indexOf('fuck') == -1 : true;
+                },
+                //update_period: 5000,
+                // When all the posts are collected and displayed - this function is evoked
+                callback: function() {
+                    console.log('all posts are collected');
+                }
+            });
+        };
+
+        updateFeed();
+        
     });
-    feed.run();
-
-});
