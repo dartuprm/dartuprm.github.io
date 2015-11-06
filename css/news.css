@@ -41,13 +41,13 @@ section{
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
     .container#box {
-  width: 400px; }
+  width: 350px; }
 }
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
      .container#box {
-  width: 350px; }
+  width: 320px; }
         }
 
 
