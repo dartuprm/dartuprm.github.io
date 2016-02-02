@@ -1,6 +1,6 @@
 <!-- JS -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="/js/menu.min.js"></script>
+<script defer src="/js/menu.min.js"></script>
 
 {% if page.url == '/news/index.html'%}
 <!-- Codebird.js - required for TWITTER -->
@@ -41,6 +41,11 @@ $(document).ready(function() {
   $("#buso").owlCarousel({
     autoPlay: 3000, //Set AutoPlay to 3 seconds
     items:4
+   
+  });
+  $("#launchpad").owlCarousel({
+    autoPlay: 3000, //Set AutoPlay to 3 seconds
+    items:2
    
   });
   $("#structures").owlCarousel({
