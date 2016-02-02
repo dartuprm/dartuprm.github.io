@@ -1,0 +1,108 @@
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }} - DART</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Optimized for search engines -->
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.ico">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/creative.css"> 
+  <!-- Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+  <!-- JS -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/js/menu.min.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-72277914-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+    <link rel="stylesheet" href="/css/contact.css"> 
+    <script type="text/javascript" src="/js/bootstrapValidator.min.js"></script>
+    <script>
+      $(document).ready(
+        function() {
+          var contactForm = $('#contact-form');
+          contactForm.bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+              valid: 'fa fa-check',
+              invalid: 'fa fa-remove',
+              validating: 'fa fa-refresh'
+            },//end message
+            fields: {
+              _replyto: {
+                validators: {
+                  notEmpty: {
+                    message: 'The email address is required'
+                  },
+                  emailAddress: {
+                    message: 'The email address is not valid'
+                  }
+                }
+              },//end replyto
+              message: {
+                validators: {
+                  notEmpty: {
+                    message: 'The message is required and cannot be empty'
+                  }
+                }
+              },//end message
+              name: {
+                validators: {
+                  notEmpty: {
+                    message: "The name is required and cannot be empty"
+                  }
+                }
+              },//end name
+              _subject: {
+                validators: {
+                  notEmpty: {
+                    message: "The subject is required and cannot be empty"
+                  }
+                }
+              }//end subject
+            }//end fields
+          });//end bootstrap validator
+          contactForm.on('success.form.bv', function(e) {
+            e.preventDefault();
+              $.ajax({
+              url: "//formspree.io/dart.uprm@gmail.com", 
+              method: "POST",
+              data: contactForm.serialize(),
+              dataType: "json",
+              beforeSend: function() {
+                contactForm.append('<div class="alert-loading" >Sending message…</div>');
+              },
+              success: function(data) {
+                contactForm.find('.alert-loading').remove();
+                var succesBox = $('<div class="alert alert-success alert-dismissible" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + '<strong>Thanks!</strong> I will reply in a few hours' + '</div>').hide();
+                contactForm.before(succesBox);
+                succesBox.fadeIn("slow");
+                succesBox.fadeTo(2000, 500).slideUp(500, function() {
+                  $(".alert-success").alert('close');
+                });
+              }
+              });
+          });
+        });
+    </script>
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+ 
+  
+
