@@ -28,16 +28,128 @@
     ga('send', 'pageview');
   </script>
 
-  
 
-  
-  
-  
-  
-  
+    <link rel="stylesheet" href="/css/about.css"> 
+
+    <link rel="stylesheet" href="/css/team.css"> 
+    <link rel="stylesheet" href="/css/owl.carousel.min.css"> 
+    <link rel="stylesheet" href="/css/owl.theme.min.css"> 
+    <script src="/js/owl.carousel.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $("#buso").owlCarousel({
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+        items:4
+      });
+      $("#structures").owlCarousel({
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+        items:4
+      });
+      $("#pr").owlCarousel({
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+        items:4
+      });
+       $("#av").owlCarousel({
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+        items:3
+      });
+      $("#lead").owlCarousel({
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+        items:4
+      });
+       $("#agse").owlCarousel({
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+        items:2
+      });
+    });
+    </script>
+    <link rel="stylesheet" href="/css/events.css">
+    <script src="/js/instafeed.min.js" type="text/javascript"></script>
+    <script src="/js/events.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/css/news.css"> 
+    <link rel="stylesheet" href="/css/jquery.socialfeed.css"> 
+    <!-- Codebird.js - required for TWITTER -->
+    <script src="/js/codebird.js"></script>
+    <!-- doT.js for rendering templates -->
+    <script src="/js/doT.min.js"></script>
+    <!-- Moment.js for showing "time ago" -->
+    <script src="/js/moment.min.js"></script>
+    <!-- Social-feed js -->
+    <script src="/js/jquery.socialfeed.js"></script>
+    <script src="/js/news.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/css/sponsors.css"> 
+    <link rel="stylesheet" href="/css/contact.css"> 
+    <script type="text/javascript" src="/js/bootstrapValidator.min.js"></script>
+    <script>
+      $(document).ready(
+        function() {
+          var contactForm = $('#contact-form');
+          contactForm.bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+              valid: 'fa fa-check',
+              invalid: 'fa fa-remove',
+              validating: 'fa fa-refresh'
+            },//end message
+            fields: {
+              _replyto: {
+                validators: {
+                  notEmpty: {
+                    message: 'The email address is required'
+                  },
+                  emailAddress: {
+                    message: 'The email address is not valid'
+                  }
+                }
+              },//end replyto
+              message: {
+                validators: {
+                  notEmpty: {
+                    message: 'The message is required and cannot be empty'
+                  }
+                }
+              },//end message
+              name: {
+                validators: {
+                  notEmpty: {
+                    message: "The name is required and cannot be empty"
+                  }
+                }
+              },//end name
+              _subject: {
+                validators: {
+                  notEmpty: {
+                    message: "The subject is required and cannot be empty"
+                  }
+                }
+              }//end subject
+            }//end fields
+          });//end bootstrap validator
+          contactForm.on('success.form.bv', function(e) {
+            e.preventDefault();
+              $.ajax({
+              url: "//formspree.io/dart.uprm@gmail.com", 
+              method: "POST",
+              data: contactForm.serialize(),
+              dataType: "json",
+              beforeSend: function() {
+                contactForm.append('<div class="alert-loading" >Sending message…</div>');
+              },
+              success: function(data) {
+                contactForm.find('.alert-loading').remove();
+                var succesBox = $('<div class="alert alert-success alert-dismissible" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + '<strong>Thanks!</strong> I will reply in a few hours' + '</div>').hide();
+                contactForm.before(succesBox);
+                succesBox.fadeIn("slow");
+                succesBox.fadeTo(2000, 500).slideUp(500, function() {
+                  $(".alert-success").alert('close');
+                });
+              }
+              });
+          });
+        });
+    </script>
   
     <link rel="stylesheet" href="/css/outreach.css"> 
-  
   
     <link rel="next" href="the base hostname & protocol for your site/history/2014/11/27/mickey-mouse.html" title="Mickey Mouse">
   
