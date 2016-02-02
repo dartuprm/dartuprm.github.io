@@ -9,13 +9,7 @@
     <div class="site-wrap">
       {% include nav.html %}
       <div class="push-wrap">
-        {% if page.url == '/index.html' %}
           {% include video-header.html %}
-        {% elsif page.image.feature %}
-           {% include post-header.html %}
-        {% else %}
-         {% include header.html %}
-        {% endif %}
         {{ content }}
         {% include footer.html %}
       </div>
