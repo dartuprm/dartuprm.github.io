@@ -149,6 +149,12 @@ Navigation Bar
   width: 250px;
 }
 
+#img-logo-nav{
+  height:80px;
+  width: 80px;
+  margin-top: 5px;
+}
+
 /* --- menu when not pressed--- */
 
 .burger {
@@ -450,6 +456,12 @@ Video Header
 
     .separate{
       letter-spacing: 30px;
+    }
+
+    .separate-less{
+      letter-spacing: 10px;
+      margin-bottom: 15px;
+      margin-left: -10px;
     }
 
     
